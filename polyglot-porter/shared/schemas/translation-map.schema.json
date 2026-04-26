@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TranslationMap CSV row schema",
+  "description": "Schema para cada linha do translation-map.csv (autoridade do polyglot-porter). Stage 03 valida; stages 04, 05, 06 consomem.",
+  "type": "object",
+  "required": [
+    "source_path",
+    "source_type",
+    "target_path",
+    "target_type",
+    "idiom_decision",
+    "confidence",
+    "action"
+  ],
+  "properties": {
+    "source_path": {
+      "type": "string",
+      "description": "Caminho relativo ao source_path raiz, com forward slashes."
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "controller",
+        "service",
+        "repository",
+        "entity",
+        "dto",
+        "config",
+        "exception",
+        "test",
+        "migration",
+        "build-file",
+        "resource",
+        "other"
+      ]
+    },
+    "target_path": {
+      "type": "string",
+      "description": "Caminho relativo ao overlay raiz. Vazio se action=skip."
+    },
+    "target_type": {
+      "type": "string",
+      "enum": [
+        "controller",
+        "service",
+        "repository",
+        "entity",
+        "dto",
+        "config",
+        "exception",
+        "test",
+        "migration",
+        "build-file",
+        "resource",
+        "other"
+      ]
+    },
+    "target_class_name": {
+      "type": "string",
+      "description": "Nome final da classe/módulo no target. Vazio para arquivos não-classe."
+    },
+    "target_namespace_or_package": {
+      "type": "string",
+      "description": "Java package, .NET namespace, ou Python module path."
+    },
+    "idiom_decision": {
+      "type": "string",
+      "enum": [
+        "literal",
+        "refactor-to-target-idiom",
+        "combine-multiple",
+        "split",
+        "skip"
+      ]
+    },
+    "null_strategy": {
+      "type": "string",
+      "enum": ["optional", "nullable", "not-applicable"],
+      "description": "Como ausência de valor é representada no target."
+    },
+    "error_strategy": {
+      "type": "string",
+      "enum": ["exception", "result-type", "http-status-only", "not-applicable"]
+    },
+    "concurrency_strategy": {
+      "type": "string",
+      "enum": ["sync", "async-io", "cpu-bound", "thread-pool", "not-applicable"]
+    },
+    "transactional": {
+      "type": "string",
+      "enum": ["yes", "no", "n/a"]
+    },
+    "relationship_strategy": {
+      "type": "string",
+      "description": "Apenas para entities. Ex: 'cascade-all', 'manual-fk', 'lazy-load', 'eager-load'.",
+      "enum": [
+        "cascade-all",
+        "manual-fk",
+        "lazy-load",
+        "eager-load",
+        "not-applicable"
+      ]
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Confidence (0-100) do mapeamento. <70 dispara manual-review."
+    },
+    "action": {
+      "type": "string",
+      "enum": ["translate", "skip", "manual-review"],
+      "description": "Operação que stage 05 executará. skip = ignorar; manual-review = aguardar input antes de traduzir."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Observações livres. Obrigatório se action=skip ou manual-review (justificativa)."
+    }
+  },
+  "additionalProperties": false
+}

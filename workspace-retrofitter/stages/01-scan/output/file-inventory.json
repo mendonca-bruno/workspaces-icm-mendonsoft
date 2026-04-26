@@ -1,0 +1,43 @@
+{
+  "target_path": "C:\\Users\\bruno\\Downloads\\ClifNotes",
+  "scan_timestamp_utc": "2026-04-25T19:00:00Z",
+  "scope": "non-island files only; islands listed as aggregates",
+  "files": [
+    {"path": "CLAUDE.md", "ext": ".md", "size_bytes": 4479, "mtime": "2026-04-25T15:20:04-03:00", "tag": "icm-conflict"},
+    {"path": "clief-notes-community-digest.md", "ext": ".md", "size_bytes": 13878, "mtime": "2026-04-25T15:10:06-03:00"},
+    {"path": "clief_notes_resource_index_v1.md", "ext": ".md", "size_bytes": 16213, "mtime": "2026-04-25T10:24:34-03:00"},
+    {"path": "clief_notes_skills_field_manual_v1.md", "ext": ".md", "size_bytes": 26912, "mtime": "2026-04-25T10:26:15-03:00"},
+    {"path": "mapa_completo_clifnotes.md", "ext": ".md", "size_bytes": 10880, "mtime": "2026-04-25T15:09:39-03:00"},
+    {"path": "workflow/animation-spec-templates.md", "ext": ".md", "size_bytes": 6189, "mtime": "2026-04-22T20:09:15-03:00"},
+    {"path": "workflow/folder-organization-guide.md", "ext": ".md", "size_bytes": 8619, "mtime": "2026-04-22T20:09:08-03:00"},
+    {"path": "workflow/production-claude-md-examples.md", "ext": ".md", "size_bytes": 11457, "mtime": "2026-04-22T20:09:26-03:00"},
+    {"path": "workflow/workflow-starter-client-management.md", "ext": ".md", "size_bytes": 6154, "mtime": "2026-04-22T20:09:43-03:00"},
+    {"path": "workflow/workflow-starter-code-project.md", "ext": ".md", "size_bytes": 6899, "mtime": "2026-04-22T20:09:38-03:00"},
+    {"path": "workflow/workflow-starter-content-pipeline.md", "ext": ".md", "size_bytes": 4688, "mtime": "2026-04-22T20:09:33-03:00"}
+  ],
+  "aggregates": {
+    "total_files": 11,
+    "total_size_bytes": 116388,
+    "by_extension": {".md": {"count": 11, "size_bytes": 116388}},
+    "by_top_folder": {
+      ".": {"count": 5, "size_bytes": 72362},
+      "workflow/": {"count": 6, "size_bytes": 44006}
+    }
+  },
+  "islands": [
+    {"path": "Classrooms/", "files": 11, "size_bytes": 225280, "icm_root": true, "action": "leave"},
+    {"path": "Interpreted-Context-Methdology-main/", "files": 292, "size_bytes": 2831155, "icm_root": true, "action": "leave"},
+    {"path": "workspace-blueprint/", "files": 194, "size_bytes": 3460300, "icm_root": true, "action": "leave"},
+    {"path": "files/", "files": 52, "size_bytes": 360448, "icm_root": false, "action": "leave", "note": "contains 3 nested ICM workspaces in vault-toolkit/architectures/"},
+    {"path": "_used/", "files": 6, "size_bytes": 1572864, "icm_root": false, "action": "leave", "note": "manual backup/archive"}
+  ],
+  "special_moves": [
+    {"path": "Classrooms-icm-overlay/", "action": "move-as-dir", "destination": "_archive/2026-04-25-classrooms-overlay/", "reason": "Overlay do retrofit anterior; preservado para opção de rollback futuro"}
+  ],
+  "exclusions_applied": [".git/", "node_modules/", ".venv/", "__pycache__/", "dist/", "build/", "target/"],
+  "user_exclusions": ["Classrooms/", "Interpreted-Context-Methdology-main/", "workspace-blueprint/", "files/", "_used/"],
+  "sensitive_patterns": [],
+  "existing_icm_files": [
+    {"path": "CLAUDE.md", "size_bytes": 4479, "conflict_resolution": "rename to CLAUDE.md.original (user decision: option C)"}
+  ]
+}

@@ -1,0 +1,31 @@
+# Stage {{STAGE_NUMBER}}: {{STAGE_NAME}}
+
+{{STAGE_ONE_LINE_PURPOSE}}
+
+## Inputs
+
+| Fonte | Arquivo / Localização | Escopo | Por quê |
+|-------|----------------------|--------|---------|
+{{INPUTS_TABLE}}
+
+## Process
+
+{{NUMBERED_STEPS}}
+
+## Checkpoints
+
+| Após Passo | Agente Apresenta | Humano Decide |
+|------------|------------------|---------------|
+{{CHECKPOINTS_TABLE}}
+
+## Audit
+
+| Verificação | Condição de Aprovação |
+|-------------|----------------------|
+{{AUDIT_TABLE}}
+
+## Outputs
+
+| Artefato | Localização | Formato |
+|----------|-------------|---------|
+{{OUTPUTS_TABLE}}

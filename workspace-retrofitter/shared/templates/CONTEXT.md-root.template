@@ -1,0 +1,38 @@
+# {{WORKSPACE_NAME}} — Task Router
+
+<!--
+L1 — Carregada no início de cada sessão. Limite: 500 tokens.
+Não inclua: regras de comportamento, instruções, voice. Apenas roteamento.
+-->
+
+## What This Is
+
+{{ONE_LINE_PURPOSE}}
+
+**CLAUDE.md** (sempre carregada) tem mapa e naming. Este arquivo roteia.
+
+---
+
+## Task Routing
+
+| Sua Tarefa | Vá Para | Você Também Vai Precisar |
+|-----------|---------|-------------------------|
+{{TASK_ROUTING_TABLE}}
+
+---
+
+## Workspace Summary
+
+| Silo | Propósito | Skills/Tools |
+|------|-----------|--------------|
+{{SILO_SUMMARY_TABLE}}
+
+Cada silo tem seu próprio CONTEXT.md. Leia aquele quando estiver trabalhando no silo.
+
+---
+
+## Cross-Silo Flow
+
+```
+{{CROSS_SILO_FLOW_DIAGRAM}}
+```

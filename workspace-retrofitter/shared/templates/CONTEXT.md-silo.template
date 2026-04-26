@@ -1,0 +1,52 @@
+# {{SILO_NAME}} — {{SILO_PURPOSE}}
+
+<!--
+L2 — Carregada quando agente entra neste silo. Limite: 500 tokens.
+Contrato puro: Inputs, Process, Outputs. Sem discurso.
+-->
+
+## What This Silo Does
+
+{{ONE_PARAGRAPH_DESCRIPTION}}
+
+---
+
+## Inputs
+
+| Fonte | Arquivo / Localização | Quando Carregar |
+|-------|----------------------|-----------------|
+{{INPUTS_TABLE}}
+
+---
+
+## Process
+
+{{PROCESS_STEPS}}
+
+---
+
+## Outputs
+
+| Artefato | Localização | Formato |
+|----------|-------------|---------|
+{{OUTPUTS_TABLE}}
+
+---
+
+## Layer Distribution (60/30/10)
+
+- **60% (infra):** {{INFRA_TASKS}}
+- **30% (orq):** {{ORCHESTRATION_TASKS}}
+- **10% (AI):** {{AI_TASKS}}
+
+---
+
+## Skills & Tools
+
+{{SKILLS_FOR_SILO}}
+
+---
+
+## Hand-off
+
+{{HANDOFF_DESCRIPTION}}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "file-mapping.schema.json",
+  "title": "File Mapping CSV Schema",
+  "description": "Contrato do file-mapping.csv produzido por stage 03 (Design) e consumido por stage 05 (Apply). O CSV é a fonte de verdade dos movimentos de arquivo.",
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "csv",
+      "description": "Sempre CSV. Plain text, editável por humano."
+    },
+    "delimiter": {
+      "const": ",",
+      "description": "Vírgula. Use aspas duplas para escapar campos com vírgula."
+    },
+    "encoding": {
+      "const": "utf-8"
+    },
+    "header": {
+      "type": "array",
+      "items": { "type": "string" },
+      "const": [
+        "source_path",
+        "destination_silo",
+        "destination_path",
+        "layer",
+        "confidence",
+        "reason",
+        "action"
+      ]
+    },
+    "columns": {
+      "type": "object",
+      "properties": {
+        "source_path": {
+          "description": "Caminho relativo ao diretório alvo. Ex: 'drafts/post-1.md'"
+        },
+        "destination_silo": {
+          "description": "Nome do silo de destino. Ex: 'writing-room'. Use '_legacy' para arquivos sem destino claro.",
+          "examples": ["writing-room", "production", "community", "code-src", "code-docs", "data-pipeline", "research", "client-delivery", "_legacy"]
+        },
+        "destination_path": {
+          "description": "Caminho relativo dentro do silo. Ex: 'drafts/post-1.md'. Pode renomear."
+        },
+        "layer": {
+          "description": "Qual camada ICM o arquivo serve no destino.",
+          "enum": ["L0", "L1", "L2", "L3", "L4", "n/a"]
+        },
+        "confidence": {
+          "description": "Confiança do mapping (0-100). <70 vai para revisão manual no MIGRATION-PLAN.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "reason": {
+          "description": "Frase curta justificando o mapping. Ex: 'extensão .md em pasta drafts/ → writing-room L4'"
+        },
+        "action": {
+          "description": "O que fazer com o arquivo.",
+          "enum": ["move", "copy", "leave", "manual-review"]
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "const": [
+        "Arquivos com confidence < 70 devem ter action = 'manual-review'.",
+        "Arquivos em .gitignore (node_modules, .venv, dist, build) devem ter action = 'leave'.",
+        "Arquivos .git/ nunca aparecem no CSV.",
+        "Cada source_path aparece em exatamente uma linha.",
+        "destination_silo deve corresponder a um silo declarado em proposed-architecture.md.",
+        "Stage 05 (Apply) recusa rodar se houver linhas com action = 'manual-review' não resolvidas."
+      ]
+    }
+  },
+  "examples": [
+    {
+      "source_path": "drafts/post-1.md",
+      "destination_silo": "writing-room",
+      "destination_path": "drafts/post-1.md",
+      "layer": "L4",
+      "confidence": 95,
+      "reason": "extensão .md em pasta drafts/ → writing-room L4",
+      "action": "move"
+    },
+    {
+      "source_path": "voice.md",
+      "destination_silo": "writing-room",
+      "destination_path": "docs/voice.md",
+      "layer": "L3",
+      "confidence": 90,
+      "reason": "nome 'voice.md' identifica regra persistente → L3 docs/",
+      "action": "move"
+    },
+    {
+      "source_path": "random-screenshot.png",
+      "destination_silo": "_legacy",
+      "destination_path": "random-screenshot.png",
+      "layer": "n/a",
+      "confidence": 40,
+      "reason": "PNG isolado sem contexto claro",
+      "action": "manual-review"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+# {{WORKSPACE_NAME}} — Workspace Map
+
+<!--
+L0 — Sempre carregada. Mapa, naming, roteamento. Limite: 1.000 tokens.
+Não inclua: instruções detalhadas, voice guides, pipeline interna.
+-->
+
+## What This Is
+
+{{ONE_LINE_PURPOSE}}
+
+**Tipo:** {{WORKSPACE_TYPE}} ({{TYPE_RATIONALE}})
+
+**CONTEXT.md** roteia tarefas para o silo certo. Este arquivo é o mapa.
+
+---
+
+## Folder Structure
+
+```
+{{WORKSPACE_NAME}}/
+├── CLAUDE.md                       ← You are here
+├── CONTEXT.md                      ← Task router
+{{SILO_TREE}}
+└── _legacy/                        ← Arquivos sem destino claro (revisão manual)
+```
+
+---
+
+## Quick Navigation
+
+| Want to... | Go here |
+|------------|---------|
+{{ROUTING_TABLE}}
+
+---
+
+## ID & Naming Conventions
+
+{{NAMING_CONVENTIONS}}
+
+---
+
+## File Placement Rules
+
+{{FILE_PLACEMENT_RULES}}
+
+---
+
+## Token Management
+
+**Cada silo é isolado.** Não carregue tudo.
+
+{{LOAD_HINTS_PER_SILO}}
+
+Os CONTEXT.md de cada silo dizem o que carregar para cada tarefa. Confie neles.
+
+---
+
+## Skills & Tools
+
+{{SKILLS_TABLE}}
+
+Veja o CONTEXT.md de cada silo para quando e como invocar.
+
+---
+
+*Gerado por workspace-retrofitter em {{GENERATION_DATE}}. Última revisão: {{LAST_REVIEW_DATE}}.*

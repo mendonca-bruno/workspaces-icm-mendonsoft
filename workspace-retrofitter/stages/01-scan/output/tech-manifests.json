@@ -1,0 +1,5 @@
+{
+  "target_path": "C:\\Users\\bruno\\Downloads\\ClifNotes",
+  "manifests_found": [],
+  "notes": "No tech manifest at root or within non-island scope. Note: workspace-blueprint/claude-office-skills-ref/package.json exists inside an ISLAND (action=leave) and is out of scope for this retrofit."
+}

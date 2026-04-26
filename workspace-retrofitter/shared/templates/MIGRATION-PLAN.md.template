@@ -1,0 +1,71 @@
+# MIGRATION PLAN — {{TARGET_PATH}}
+
+Gerado por workspace-retrofitter em {{GENERATION_DATE}}.
+
+**Status:** AGUARDANDO REVISÃO HUMANA. Para autorizar a aplicação, crie um arquivo `APPROVED.md` ao lado deste com qualquer conteúdo.
+
+---
+
+## Resumo
+
+- **Diretório alvo:** `{{TARGET_PATH}}`
+- **Tipo classificado:** {{WORKSPACE_TYPE}}
+- **Maturidade:** {{MATURITY}}
+- **Modos de trabalho detectados:** {{WORK_MODES}}
+- **Silos propostos:** {{PROPOSED_SILOS_COUNT}}
+- **Arquivos a mover:** {{FILES_TO_MOVE_COUNT}}
+- **Arquivos para revisão manual:** {{MANUAL_REVIEW_COUNT}}
+- **Conflitos com ICM pré-existente:** {{CONFLICTS_COUNT}}
+
+---
+
+## Arquivos ICM a criar
+
+| Arquivo | Camada | Tamanho estimado |
+|---------|--------|------------------|
+{{ICM_FILES_TO_CREATE_TABLE}}
+
+---
+
+## Movimentos de arquivo propostos
+
+Veja [`file-mapping.csv`](file-mapping.csv) para a tabela completa. Resumo por silo:
+
+{{MOVES_SUMMARY_PER_SILO}}
+
+---
+
+## Conflitos a resolver
+
+{{CONFLICTS_LIST}}
+
+---
+
+## Arquivos para revisão manual
+
+Estes arquivos não tinham destino claro. Edite `file-mapping.csv` para atribuir silo, ou deixe que vão para `_legacy/`:
+
+{{MANUAL_REVIEW_LIST}}
+
+---
+
+## O que acontece quando você aprovar
+
+Quando `APPROVED.md` existir, stage 05 vai:
+
+1. Ler `file-mapping.csv` (incluindo suas edições).
+2. Escrever `rollback-manifest.json` listando cada movimento.
+3. Criar a estrutura de pastas dentro de `{{TARGET_PATH}}`.
+4. Mover arquivos conforme o mapping.
+5. Escrever os arquivos ICM (`CLAUDE.md`, `CONTEXT.md`, etc.).
+6. Gerar `apply-log.md` com resultado de cada operação.
+
+Para reverter depois: stage 05 lê `rollback-manifest.json` no modo `--rollback`.
+
+---
+
+## O que NÃO vai acontecer sem aprovação adicional
+
+- Apagar arquivos (nunca; arquivos não-mapeados vão para `_legacy/`)
+- Modificar conteúdo de arquivos existentes (apenas mover)
+- Tocar em `.git/`, `node_modules/`, `.venv/`, ou qualquer pasta do `.gitignore`

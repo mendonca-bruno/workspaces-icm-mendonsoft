@@ -1,0 +1,18 @@
+source_path,destination_silo,destination_path,layer,confidence,reason,action
+CLAUDE.md,_root,CLAUDE.md.original,L3,100,"Conflito ICM raiz; decisão do usuário (opção C): preservar L0 anterior renomeado antes de gerar novo CLAUDE.md.",move
+clief-notes-community-digest.md,reference,reference/community-digest.md,L3,90,"Resumo dos posts mais engajados da comunidade Skool. Strip prefixo 'clief-notes-' (redundante em reference/).",move
+clief_notes_resource_index_v1.md,reference,reference/resource-index.md,L3,90,"Resource Index — 40+ links curados. Strip prefixo 'clief_notes_' e sufixo '_v1' (sem _v2 para contrastar).",move
+clief_notes_skills_field_manual_v1.md,reference,reference/skills-field-manual.md,L3,90,"Manual das 10 capabilities Claude. Strip prefixo + sufixo.",move
+mapa_completo_clifnotes.md,reference,reference/mapa-completo.md,L3,90,"Mapa cruzado cursos × arquivos locais. Strip sufixo redundante. NOTA: conteúdo parcialmente obsoleto (caminhos do Classrooms pré-retrofit) — não corrigir aqui (fora do escopo).",move
+workflow/folder-organization-guide.md,templates,templates/folder-organization-guide.md,L3,90,"Guia do 3-layer system com routing tables — referência prática reutilizável. Mantém naming.",move
+workflow/production-claude-md-examples.md,templates,templates/claude-md-examples.md,L3,90,"5 CLAUDE.md prontos por perfil. Strip prefixo 'production-' (redundante em templates/).",move
+workflow/animation-spec-templates.md,templates,templates/animation-spec-template.md,L3,90,"Template para spec de animation video. Singularizar (1 template, não vários).",move
+workflow/workflow-starter-content-pipeline.md,templates,templates/starter-content-pipeline.md,L3,90,"Boilerplate folder + CLAUDE.md para content pipeline. Strip prefixo 'workflow-' (redundante em templates/).",move
+workflow/workflow-starter-code-project.md,templates,templates/starter-code-project.md,L3,90,"Boilerplate para code project. Strip prefixo 'workflow-'.",move
+workflow/workflow-starter-client-management.md,templates,templates/starter-client-management.md,L3,90,"Boilerplate para client management. Strip prefixo 'workflow-'.",move
+Classrooms-icm-overlay/,_archive,_archive/2026-04-25-classrooms-overlay/,n/a,95,"Overlay+manifest do retrofit anterior do Classrooms. Move-as-dir preserva integridade do rollback-manifest.json interno. Naming por data factual (2026-04-25 quando foi criado).",move-as-dir
+Classrooms/,_island,Classrooms/,n/a,100,"Workspace ICM auto-contido (retrofit anterior). action=leave: stage 05 não toca.",leave
+Interpreted-Context-Methdology-main/,_island,Interpreted-Context-Methdology-main/,n/a,100,"Repo do framework ICM com CLAUDE.md raiz + 5 sub-workspaces. action=leave.",leave
+workspace-blueprint/,_island,workspace-blueprint/,n/a,100,"Workspace de exemplo Acme DevRel com CLAUDE.md raiz. action=leave.",leave
+files/,_island,files/,n/a,100,"Biblioteca vault-toolkit auto-organizada com 3 architectures ICM aninhadas. action=leave.",leave
+_used/,_island,_used/,n/a,100,"Backup manual (zips, exports, PDFs). action=leave.",leave

@@ -1,0 +1,22 @@
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI
+
+from {{PACKAGE_NAME}}.api.v1.api import api_router
+from {{PACKAGE_NAME}}.core.config import settings
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # {{STARTUP_PLACEHOLDER}} — populated by stage 05 (DB pool init, etc.)
+    yield
+    # {{SHUTDOWN_PLACEHOLDER}}
+
+
+app = FastAPI(
+    title=settings.PROJECT_NAME,
+    version=settings.VERSION,
+    lifespan=lifespan,
+)
+
+app.include_router(api_router, prefix=settings.API_V1_PREFIX)

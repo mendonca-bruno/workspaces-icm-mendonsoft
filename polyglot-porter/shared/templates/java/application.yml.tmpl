@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: {{PROJECT_NAME}}
+  datasource:
+    url: {{DB_URL}}
+    username: {{DB_USER}}
+    password: {{DB_PASSWORD}}
+  jpa:
+    hibernate:
+      ddl-auto: {{DDL_AUTO}}
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: {{SERVER_PORT}}
+
+logging:
+  level:
+    root: INFO
+    {{BASE_PACKAGE}}: DEBUG

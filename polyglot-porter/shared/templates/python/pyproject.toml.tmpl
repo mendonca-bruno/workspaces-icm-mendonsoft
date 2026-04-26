@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "{{PROJECT_NAME}}"
+version = "{{VERSION}}"
+description = "{{PROJECT_DESCRIPTION}}"
+readme = "README.md"
+requires-python = ">={{PYTHON_VERSION}}"
+dependencies = [
+    "fastapi>={{FASTAPI_VERSION}}",
+    "uvicorn[standard]>=0.27",
+    "sqlalchemy>=2.0",
+    "alembic>=1.13",
+    "pydantic>=2.5",
+    "pydantic-settings>=2.1",
+    "{{DB_DRIVER_PACKAGE}}",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "httpx>=0.26",
+    "ruff>=0.1",
+    "mypy>=1.8",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/{{PACKAGE_NAME}}"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "{{RUFF_TARGET}}"
+
+[tool.mypy]
+strict = true
