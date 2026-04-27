@@ -1,0 +1,7 @@
+# Sources canônicos por tecnologia
+
+Estrutura esperada: `_sources/<tech>/<sistema>/<arquivo-original>` (ex.: `_sources/java/folha/ddl-rubricas-2025-08.sql`). Stage 01 cria as subpastas automaticamente na primeira ingestão de cada (tech, sistema).
+
+Mantenha os arquivos com nomes originais — não renomeie. Stage 06 calcula SHA-256 a cada execução e compara com `source_sha256` do dossiê para detectar drift.
+
+Não comite credenciais / dados sensíveis. Se uma DDL contém grants com senhas, sanitize antes.

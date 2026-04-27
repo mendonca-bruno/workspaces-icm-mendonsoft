@@ -1,0 +1,3 @@
+# Playbooks (padrões promovidos de cases recorrentes)
+
+Vazio até primeira promoção. Stage 05 cria arquivos aqui no formato `<sintoma>-<sistema>.md` quando ≥3 cases similares são detectados (ver `reference/playbook-template.md`).

@@ -1,0 +1,12 @@
+# Tickets em andamento (L4 working)
+
+Cada ticket vira `tickets/<ticket-id>/` com os outputs dos stages 02-05:
+- `input.md` — ticket bruto colado pelo Bruno (manual)
+- `02-clarification.md` — perguntas + resposta do solicitante (se score baixo no Stage 02)
+- `02-clarified.md` — ticket normalizado
+- `03-search-result.md` — cases + dossiês + playbooks identificados
+- `04-action-plan.md` — plano de ação executável
+- `05-outcome.md` — outcome real colado pelo Bruno após executar
+- `05-postmortem.md` — não usado (stage 05 escreve direto em `cases/`)
+
+Após Stage 05 fechar o caso, considere mover `tickets/<id>/` para `_archive/<YYYY-MM>/` se quiser preservar histórico de execução, ou simplesmente deletar (o conteúdo essencial já vive em `cases/INC<id>.md`).
